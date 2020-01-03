@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Default";
+    var users = DependencyResolver.Current.GetService<WebApp.Code.IPersonRepository>();
+    var cms = DependencyResolver.Current.GetService<WebApp.Code.ICMS>();
+}
+
+<h2>Default</h2>
+@{
+    foreach (var item in users.GetAll())
+    {
+        <p>用户名： + @item.Name;</p>
+    }
+}
+
+<p>cms</p>
+@(cms.WriteSomething())
